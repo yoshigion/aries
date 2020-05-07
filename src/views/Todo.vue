@@ -20,7 +20,7 @@
     <button class="button is-link" @click="createTodo">ADD</button>
     <ul id="todo">
       <li v-for="todo in todos" :key="todo.name">
-        <span class="todo-wrapper">{{ todo.name }}</span>
+        <span class="todo-wrapper">{{ todo.name }}:{{ todo.description }}</span>
       </li>
     </ul>
   </div>
