@@ -64,8 +64,10 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 .todo-wrapper {
-  /* 適宜記述 */
+  margin: 5px;
+  padding: 0;
 }
 </style>
