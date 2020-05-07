@@ -1,24 +1,20 @@
 <template>
-  <div>
-    <nav class="level">
-      <div class="level-item has-text-centered">
-        <div>
-          <p class="heading">TODO</p>
-          <b-field label="Name">
-            <b-input v-model="input.name"></b-input>
-          </b-field>
-        </div>
-      </div>
-      <div class="level-item has-text-centered">
-        <div>
-          <b-field label="Description">
-            <b-input v-model="input.description"></b-input>
-          </b-field>
-        </div>
-      </div>
-    </nav>
-    <button class="button is-link" @click="createTodo">ADD</button>
-    <ul id="todo">
+  <div id="todo">
+    <a-form :form="form" :label-col="{ span: 5 }" :wrapper-col="{ span: 5 }" @submit="createTodo">
+      <a-form-item label="TODO">
+        <span class="ant-form-text"> </span>
+      </a-form-item>
+      <a-form-item label="Name">
+        <a-input v-model="input.name" placeholder="input"></a-input>
+      </a-form-item>
+      <a-form-item label="Description">
+        <a-input v-model="input.description" placeholder="placeholder"></a-input>
+      </a-form-item>
+      <a-form-item :wrapper-col="{ span: 5, offset: 5 }">
+        <a-button type="primary" html-type="submit">ADD</a-button>
+      </a-form-item>
+    </a-form>
+    <ul>
       <li v-for="todo in todos" :key="todo.name">
         <span class="todo-wrapper">{{ todo.name }}:{{ todo.description }}</span>
       </li>
@@ -39,7 +35,9 @@ export default {
         name: '',
         description: ''
       },
-      todos: []
+      todos: [],
+      formLayout: 'vertical',
+      form: this.$form.createForm(this)
     }
   },
   created: async function () {

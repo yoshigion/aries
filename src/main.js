@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Buefy from 'buefy' // 追記
 import App from './App.vue'
+import Antd from 'ant-design-vue' // add
 import router from './router'
 import 'buefy/dist/buefy.css' // 追記
+import 'ant-design-vue/dist/antd.css' // add
 
 import Amplify, * as AmplifyModules from 'aws-amplify' // 追記
 import { AmplifyPlugin } from 'aws-amplify-vue' // 追記
@@ -11,6 +13,7 @@ Amplify.configure(aws_exports) // 追記
 
 Vue.use(AmplifyPlugin, AmplifyModules) // 追記
 Vue.use(Buefy) // 追記
+Vue.use(Antd) // add
 
 Vue.config.productionTip = false
 
